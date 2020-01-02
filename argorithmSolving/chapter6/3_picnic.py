@@ -1,3 +1,7 @@
+# Solving Date: 20.01.02.
+# Site: https://algospot.com/judge/problem/read/PICNIC
+
+
 def initiate(student, friend_num, friend_list):
 	# 순서는 열, 행
 	# are_friends = 친구를 행렬로 나타냄
