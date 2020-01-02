@@ -48,7 +48,7 @@ def main():
 
 def file_main():
 	# file로 검사하기 위한 main
-	file = open('5_test.txt', 'r', encoding='utf-8')
+	file = open('3_test.txt', 'r', encoding='utf-8')
 	case_num = int(file.readline())
 	for _ in range(case_num):
 		# 첫 번째는 학생 수, 두 번째는 친구 쌍의 수
