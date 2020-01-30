@@ -78,6 +78,7 @@ def file_main():
 			print(value)
 		else:
 			print(-1)
+	file.close()
 
 
 if __name__ == '__main__':

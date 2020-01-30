@@ -74,6 +74,7 @@ def file_main():
 				print(word, "YES")
 			else:
 				print(word, "NO")
+	file.close()
 
 
 if __name__ == '__main__':
