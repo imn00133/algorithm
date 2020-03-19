@@ -1,3 +1,4 @@
+# https://www.acmicpc.net/problem/10951
 test_case = int(input())
 
 for i in range(test_case):
