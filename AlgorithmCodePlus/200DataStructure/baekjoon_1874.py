@@ -55,6 +55,7 @@ def file_main():
 	else:
 		for letter in op_str:
 			print(letter)
+	file.close()
 
 
 if __name__ == '__main__':
