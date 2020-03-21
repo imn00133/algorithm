@@ -38,6 +38,7 @@ def file_main():
 			print("YES")
 		else:
 			print("NO")
+	file.close()
 
 
 if __name__ == '__main__':
