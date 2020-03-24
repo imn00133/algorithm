@@ -75,6 +75,7 @@ def file_main():
 	for op_num in range(test_op_num):
 		op = file.readline().split()
 		queue_control(queue, op)
+	file.close()
 
 
 if __name__ == '__main__':
