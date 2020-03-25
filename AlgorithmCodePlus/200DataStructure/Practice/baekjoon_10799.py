@@ -4,6 +4,21 @@ import sys
 read = sys.stdin.readline
 
 
+def index_laser(stick):
+	stack = []
+	cut_number = 0
+	for index, block in enumerate(stick):
+		if block == '(':
+			stack.append(index)
+		elif index - 1 == stack[-1]:
+			stack.pop()
+			cut_number += len(stack)
+		else:
+			stack.pop()
+			cut_number += 1
+	return cut_number
+
+
 def laser(stick):
 	stack = []
 	cut_number = 0
@@ -29,12 +44,12 @@ def main(mode=''):
 			stick = file.readline().strip()
 			if not stick:
 				break
-			cut_number = laser(stick)
+			cut_number = index_laser(stick)
 			print(cut_number)
 		file.close()
 	else:
 		stick = read().strip()
-		cut_number = laser(stick)
+		cut_number = index_laser(stick)
 		print(cut_number)
 
 
