@@ -1,4 +1,5 @@
 # https://www.acmicpc.net/problem/10809
+# Solving Date: 20.03.28.
 # https://wookiist.tistory.com/29 알파벳 리스트 만들기
 # pythonic한 것이 두 배 느리다(112ms/60ms) 아마 string을 import하는게 무거운게 아닐까 싶다.
 

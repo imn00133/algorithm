@@ -1,4 +1,5 @@
 # https://www.acmicpc.net/problem/1918
+# Solving Date: 20.03.27.
 
 import sys
 

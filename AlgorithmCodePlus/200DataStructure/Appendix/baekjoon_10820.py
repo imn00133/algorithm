@@ -1,4 +1,5 @@
 # https://www.acmicpc.net/problem/10820
+# Solving Date: 20.03.28.
 # strip()은 공백도 지우기 때문에 명시적으로 '\n'만 지우도록 만든다.
 # sys.stdin.readline은 input과 다르게 EOF가 입력되면 빈 string으로 인지한다.
 # 이는 sys.stdin이 file과 유사한 객체라고 한다.

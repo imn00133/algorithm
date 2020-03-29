@@ -1,4 +1,5 @@
 # https://www.acmicpc.net/problem/1935
+# Solving Date: 20.03.27.
 # ascii를 통해 배열의 크기를 줄임
 # https://lsjsj92.tistory.com/201
 

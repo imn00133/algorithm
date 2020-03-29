@@ -1,3 +1,6 @@
+# Solving Date: 20.03.28.
+
+
 def compare_id(individual_user_id, individual_banned_id):
     flag_same_id = True
     for i in range(len(individual_user_id)):

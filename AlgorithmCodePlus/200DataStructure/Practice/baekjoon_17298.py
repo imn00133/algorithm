@@ -1,4 +1,5 @@
 # https://www.acmicpc.net/problem/17298
+# Solving Date: 20.03.25.
 
 import sys
 read = sys.stdin.readline

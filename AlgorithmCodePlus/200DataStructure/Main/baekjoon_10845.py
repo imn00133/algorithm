@@ -1,4 +1,5 @@
 # https://www.acmicpc.net/problem/10845
+# Solving Date: 20.03.24.
 # 참고
 # https://daimhada.tistory.com/107
 # https://wayhome25.github.io/cs/2017/04/18/cs-21/

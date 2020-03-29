@@ -1,4 +1,5 @@
 # https://www.acmicpc.net/problem/1676
+# Solving Date: 20.03.28.
 
 
 def main():

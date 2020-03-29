@@ -1,4 +1,5 @@
 # https://www.acmicpc.net/problem/9093
+# Solving Date: 20.03.21.
 # list연산이 적게 들어가서 그런지 더 빠르다.
 
 import sys

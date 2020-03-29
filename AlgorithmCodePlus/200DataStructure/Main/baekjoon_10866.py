@@ -1,4 +1,5 @@
 # https://www.acmicpc.net/problem/10866
+# Solving Date: 20.03.24.
 # https://excelsior-cjh.tistory.com/96 참고
 
 import sys

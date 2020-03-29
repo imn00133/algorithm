@@ -1,4 +1,5 @@
 # https://www.acmicpc.net/problem/6588
+# Solving Date: 20.03.29.
 # print를 썼을 때는 4200ms가 나오다가 read를 쓰니 280ms가 나온다.
 # range의 초기값, 최대값, step을 잘 사용하자.
 # 최대값은 상수에 놓고 사용하자.

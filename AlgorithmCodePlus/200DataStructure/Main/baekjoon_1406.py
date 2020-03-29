@@ -1,4 +1,5 @@
 # https://www.acmicpc.net/problem/1406
+# Solving Date: 20.03.21.
 # https://www.acmicpc.net/source/18289071 - 출력속도를 높이기 위해 참고
 
 import sys

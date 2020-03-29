@@ -1,4 +1,5 @@
 # https://www.acmicpc.net/problem/1874
+# Solving Date: 20.03.21.
 # op_str을 string으로 처리하여 +=, -=를 사용할 경우 8배 정도 시간이 더 걸린다.
 
 import sys

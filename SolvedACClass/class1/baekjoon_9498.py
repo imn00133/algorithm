@@ -1,4 +1,5 @@
 # https://www.acmicpc.net/problem/9498
+# Solving Date: 20.03.27.
 
 score = int(input())
 grade = ('A', 'B', 'C', 'D', 'F')

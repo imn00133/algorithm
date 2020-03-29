@@ -1,4 +1,5 @@
 # https://www.acmicpc.net/problem/10872
+# Solving Date: 20.03.28.
 
 
 def recursive_factorial(number):

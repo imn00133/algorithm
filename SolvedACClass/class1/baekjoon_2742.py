@@ -1,4 +1,5 @@
 # https://www.acmicpc.net/problem/2742
+# Solving Date: 20.03.28.
 
 
 def used_reverse_range(num):

@@ -1,4 +1,5 @@
 # https://www.acmicpc.net/problem/1373
+# Solving Date: 20.03.29.
 # 진수변환은 https://www.daleseo.com/python-int-bases/를 참고한다.
 # n진법 string을 10진법 숫자로 표현하는 방법은 https://programmers.co.kr/learn/courses/4008/lessons/12733
 

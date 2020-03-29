@@ -1,4 +1,5 @@
 # https://www.acmicpc.net/problem/17413
+# Solving Date: 20.03.24.
 # rev_str의 mode가 'stack'이 되면 stack으로 풀고, 아니면 pythonic하게 해결한다.
 # stack사용 시 80ms/pythonic할 경우 64ms가 나온다.
 

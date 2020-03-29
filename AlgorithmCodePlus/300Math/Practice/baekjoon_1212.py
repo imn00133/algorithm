@@ -1,5 +1,5 @@
 # https://www.acmicpc.net/problem/1212
-# Date: 20.03.29.
+# Solving Date: 20.03.29.
 
 import sys
 read = sys.stdin.readline

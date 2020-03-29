@@ -1,4 +1,5 @@
 # https://www.acmicpc.net/problem/2004
+# Solving Date: 20.03.28.
 
 
 def count_squared_num(num, divisor):

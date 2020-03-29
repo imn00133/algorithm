@@ -1,3 +1,6 @@
+# Solving Date: 20.03.28.
+
+
 def solution(k, room_number):
     # 효율성 테스트 실패
     room_full = [False for x in range(k+1)]

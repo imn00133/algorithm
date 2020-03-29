@@ -1,4 +1,5 @@
 # https://www.acmicpc.net/problem/17087
+# Solving Date: 20.03.29.
 # N이 10^5여서 stack이 터지는 듯 하다. 재귀는 불가능한 것으로 판단.
 
 import sys

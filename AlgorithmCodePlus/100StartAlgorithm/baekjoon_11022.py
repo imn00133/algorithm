@@ -1,4 +1,5 @@
 # https://www.acmicpc.net/problem/11021
+# Solving Date: 20.03.19.
 
 test_case_num = int(input())
 for count in range(test_case_num):

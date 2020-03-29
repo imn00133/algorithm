@@ -1,4 +1,5 @@
 # https://www.acmicpc.net/problem/10871
+# Solving Date: 20.03.29.
 # pythonic이 4ms 빠르게 나오나, 오차 범위인 듯 하다.
 
 import sys

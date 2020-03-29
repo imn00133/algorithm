@@ -1,3 +1,6 @@
+# Solving Date: 20.03.28.
+
+
 def grab_item(board, move):
     item = None
     for line in board:
