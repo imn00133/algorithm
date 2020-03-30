@@ -11,7 +11,7 @@ dp_arr = [0 for _ in range(1001)]
 
 def bottom_up(num):
 	dp_arr[0] = dp_arr[1] = 1
-	for index in range(1, num+1):
+	for index in range(2, num+1):
 		dp_arr[index] = (dp_arr[index-1] + dp_arr[index-2]) % MOD_NUM
 	return dp_arr[num]
 
