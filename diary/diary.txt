@@ -171,3 +171,23 @@ check_prime을 True로 만들어두니, 리스트 내포를 사용하기 쉬었�
 이렇게 구현했는데도 풀린 것을 보면 낮은 값에서 답이 나오는 것을 알 수 있다.
 test해보니 1,000,000이하에서는 1000이하의 소수로 골드바흐의 문제가 풀리는 것을 볼 수 있었다.
 일단 해결됨으로 수정하지 않고 놔둔다.
+
+20.03.30.
+dynamic programming을 시작하였다. 점화식을 잘 세울수 있을지 모르겠다.
+가능하다면 Bottom up/top down을 둘 다 구현해보는 것을 목표로 해야겠다.
+재귀 최대 깊이 지정은 https://algoshipda.blogspot.com/2015/05/syssetrecursionlimit-limit.html을 참고한다.
+
+1463번
+재귀 최대 깊이를 변경하여도, stack size의 제한이 있어 해결할 수 없다.
+(exit code 0xc0000fd 오류 발생)
+https://bugs.python.org/issue32570
+이는 윈도우의 스택은 2MB, 리눅스는 8MB를 잡기 때문이다.
+이를 해결하는 방법중 하나는 tread를 사용하는 방법
+https://stackoverflow.com/questions/2067637/how-do-i-increase-the-stack-size-in-python
+이 있으나, 해결되지 않았다.
+어쩌피 dp_arr에 저장됨으로, 1000으로 값을 나눠 계산하고, 깊이 및 stack 사용량을 줄였다.
+bottom_up은 전혀 문제가 없다.
+
+dp_arr의 0과 1은 초기값을 넣어주었음으로, bottom up에서 2부터 시작해야 한다.
+처음에 0으로 초기화해서 문제가 없었지. 아니였으면 오류가 있을 뻔 했다.
+
