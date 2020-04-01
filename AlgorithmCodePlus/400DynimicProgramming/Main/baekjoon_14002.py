@@ -22,11 +22,11 @@ def bottom_up(sequence):
 				dp_arr[index][1] = sub_index
 
 
-def find_sequence(sequence, lis, index):
+def find_sequence(sequence, index):
 	if dp_arr[index][0] == 1:
-		return lis.append(sequence[index])
-	find_sequence(sequence, lis, dp_arr[index][1])
-	return lis.append(sequence[index])
+		return print(sequence[index], end=' ')
+	find_sequence(sequence, dp_arr[index][1])
+	return print(sequence[index], end=' ')
 
 
 def top_down(sequence):
@@ -47,10 +47,7 @@ def main(mode=''):
 		print(dp_arr[max_index][0])
 
 		# 최대 길이 수열 반환
-		lis = []
-		find_sequence(sequence, lis, max_index)
-		for value in lis:
-			print(value, end=' ')
+		find_sequence(sequence, max_index)
 
 
 if __name__ == '__main__':
