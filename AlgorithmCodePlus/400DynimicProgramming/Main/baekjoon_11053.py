@@ -1,5 +1,6 @@
 # https://www.acmicpc.net/problem/11053
 # Solved Date: 20.04.01.
+# 메모리 사용량을 줄이기 위해 tuple 생성
 # 재귀 방식은 해결하지 못함
 
 import sys
@@ -9,6 +10,7 @@ sys.setrecursionlimit(10 ** 4)
 
 MAX = 1000
 dp_arr = [0 for _ in range(MAX+1)]
+dp_check = [False for _ in range(MAX+1)]
 
 
 def bottom_up(sequence):
@@ -19,29 +21,29 @@ def bottom_up(sequence):
 				dp_arr[index] = dp_arr[sub_index] + 1
 
 
-def top_down(index, sequence):
-	if index == 0:
-		dp_arr[index] = 1
-		return dp_arr[index]
-	if dp_arr[index] > 0:
-		return dp_arr[index]
-	for i in range(1, index):
-		if sequence[i] < sequence[index]:
-			dp_arr[index] = max(top_down(i-1, sequence) + 1, dp_arr[index])
-	if dp_arr[index] == 0:
-		dp_arr[index] = 1
-	return dp_arr[index]
+def top_down(sequence):
+	if len(sequence) == 1:
+		return 1
+	if dp_check[len(sequence)-1]:
+		return dp_arr[len(sequence)-1]
+	for i in range(len(sequence)):
+		if dp_arr[len(sequence)-1] == 0:
+			dp_arr[len(sequence)-1] = 1
+		if sequence[i] < sequence[len(sequence)-1] or top_down(sequence[:-1]) + 1 > dp_arr[len(sequence)-1]:
+			dp_arr[len(sequence)-1] = top_down(sequence[:-1]) + 1
+	dp_check[len(sequence)-1] = True
+	return dp_arr[len(sequence)-1]
 
 
 def main(mode=''):
 	arr_len = int(read().strip())
-	sequence = [int(x) for x in read().split()]
+	sequence = tuple([int(x) for x in read().split()])
 	if mode == 'top':
-		top_down(len(sequence)-1, sequence)
+		top_down(sequence)
 	else:
 		bottom_up(sequence)
 	print(max(dp_arr[:len(sequence)]))
 
 
 if __name__ == '__main__':
-	main()
+	main('top')
