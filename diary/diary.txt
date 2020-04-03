@@ -310,7 +310,17 @@ https://docs.python.org/ko/3/library/resource.html
 stackless python
 https://namu.wiki/w/Python#s-4.1
 
-@@
+# 20.04.03.
+day2 happy number
+너무 dp연습만 했나보다. 정말 pythonic한 방법이 있었는데, 그냥 arr에 때려넣고 풀었다.
+집합을 잘 사용하지 않았는데, 집합을 사용해보니 중복제거에는 매우 편하다. 사용하는 연습을 해야겠다.
+
+day3 maximum subarray
+이전에 배웠던 거라 dp로 풀었는데, 분할탐색으로도 풀 수 있다고 한다.
+알고리즘 공부하다보면 나오겠지..?
+
+
+@@@
 20.04.01
 11053 재귀 함수 작성
 14002 재귀 함수 작성
