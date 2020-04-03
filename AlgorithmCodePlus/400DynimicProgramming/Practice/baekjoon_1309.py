@@ -19,12 +19,23 @@ def bottom_up(num):
 
 
 def top_down(num):
-    pass
+    if num == 0:
+        dp_arr[0][0] = 1
+        return dp_arr[num]
+    if all(dp_arr[num]):
+        return dp_arr[num]
+    dp_arr[num][0] = (top_down(num-1)[0] + top_down(num-1)[1] + top_down(num-1)[2]) % MOD
+    dp_arr[num][1] = (top_down(num-1)[0] + top_down(num-1)[2]) % MOD
+    dp_arr[num][2] = (top_down(num-1)[0] + top_down(num-1)[1]) % MOD
+    return dp_arr[num]
 
 
 def main(mode=''):
     num = int(read().strip())
     if mode == "top":
+        if num > 1000:
+            for part_num in range(1000, num+1, 1000):
+                top_down(part_num)
         top_down(num)
     else:
         bottom_up(num)
@@ -32,4 +43,4 @@ def main(mode=''):
 
 
 if __name__ == '__main__':
-    main()
+    main('top')
