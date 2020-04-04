@@ -1,8 +1,14 @@
 # https://www.acmicpc.net/problem/1476
 # Solved Date: 20.04.04.
+# 중국인의 나머지정리 https://joonas.tistory.com/23
+# 구현 https://goscala.tistory.com/206
 
 import sys
 read = sys.stdin.readline
+
+
+def chinese_remainder(years):
+    pass
 
 
 def brute_force(years):
