@@ -30,7 +30,7 @@ def max_profit(prices):
 
 def main():
     prices = [int(x) for x in input().split()]
-    print(fast_profit(prices))
+    print(another_profit(prices))
     print(max_profit(prices))
 
 
