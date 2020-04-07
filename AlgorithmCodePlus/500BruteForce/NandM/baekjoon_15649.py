@@ -1,5 +1,5 @@
 # https://www.acmicpc.net/problem/15649
-# Solved Date:
+# Solved Date: 20.04.07.
 # 리스트를 줄여가면서 넘겨주면 더 편할 것 같으나, 메모리를 너무 사용한다.
 
 import sys
