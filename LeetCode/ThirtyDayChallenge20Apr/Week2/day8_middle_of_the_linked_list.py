@@ -1,4 +1,7 @@
-# Definition for singly-linked list.
+# https://leetcode.com/problems/middle-of-the-linked-list/
+# Solved Date: 20.04.08.
+
+
 class ListNode:
     def __init__(self, x):
         self.val = x
