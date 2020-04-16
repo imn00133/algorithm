@@ -4,6 +4,8 @@
 import sys
 read = sys.stdin.readline
 
+SELECT_NUM = 6
+
 
 def recursion(m, nums, ans, index=0):
     if m == 0:
@@ -18,19 +20,43 @@ def recursion(m, nums, ans, index=0):
     return 0
 
 
-def permutation(nums, choice_list):
+def permutation(choice_list):
     main_index = 0
-    for index in range(len(choice_list), 0, -1):
+    for index in range(len(choice_list)-1, 0, -1):
         if choice_list[index] < choice_list[index-1]:
             main_index = index
             break
     swap_index = -1
     for index in range(main_index, len(choice_list)):
-        pass
+        if choice_list[index] == 0 and swap_index < index:
+            swap_index = index
+    choice_list[main_index-1], choice_list[swap_index] = choice_list[swap_index], choice_list[main_index-1]
+    for index in range(main_index, len(choice_list)):
+        j = len(choice_list) + main_index - index - 1
+        if index > j:
+            break
+        choice_list[index], choice_list[j] = choice_list[j], choice_list[index]
     if main_index:
-        return True
+        return True, choice_list
     else:
-        return False
+        return False, choice_list
+
+
+def permutation_brute_force(nums):
+    choice_list = [0 for _ in range(len(nums))]
+    for index in range(SELECT_NUM):
+        choice_list[index] = 1
+    while True:
+        ans = []
+        for index in range(len(choice_list)):
+            if choice_list[index] == 1:
+                ans.append(nums[index])
+            if len(ans) == SELECT_NUM:
+                break
+        print(*ans)
+        flag, choice_list = permutation(choice_list)
+        if not flag:
+            break
 
 
 def main(mode=''):
@@ -39,13 +65,10 @@ def main(mode=''):
         if not arr_num:
             break
         if mode == 'p':
-            choice_list = [0 for _ in range(arr_num)]
-            for index in range(6):
-                choice_list[index] = 1
-            permutation(nums, choice_list)
+            permutation_brute_force(nums)
         else:
             ans = []
-            recursion(6, nums, ans)
+            recursion(SELECT_NUM, nums, ans)
         print()
 
 
