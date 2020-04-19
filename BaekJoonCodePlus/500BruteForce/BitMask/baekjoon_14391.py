@@ -41,7 +41,7 @@ def bit_mask(row, col, paper):
         for y in range(row):
             number = 0
             for x in range(col):
-                k = y * row + x
+                k = y * col + x
                 if index & (1 << k):
                     number = number * 10 + paper[y][x]
                 else:
@@ -51,7 +51,7 @@ def bit_mask(row, col, paper):
         for x in range(col):
             number = 0
             for y in range(row):
-                k = y * row + x
+                k = y * col + x
                 if index & (1 << k) == 0:
                     number = number * 10 + paper[y][x]
                 else:
@@ -98,5 +98,5 @@ def test():
 
 
 if __name__ == '__main__':
-    test()
+    # test()
     main()
