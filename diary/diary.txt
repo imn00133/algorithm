@@ -701,6 +701,41 @@ test case를 brute force로 넣으니 3*2가 이상한 것을 볼 수 있었다.
 사유는... row major number를 계산하기 위해서는 col을 사용해야 되는데 row를 곱해줘서 number가 건너뛰어지고 있었다.
 한숨.
 
+# 20.04.20.
+13023번
+강의에서는 이것저것 사용해서 다 돌렸지만, dfs를 통해서 깊이 탐색을 해보았다.
+처음 적용해보는 거라 쉽지는 않았다. 모든 정점을 다 확인해봐야 된다는 점을 고려하지 않아 두어번 틀렸다.
+질문을 보니, 모든 정점에 대해서 확인하는 all부분이 빠진거였다.
+처음 적용은 어려운 것 같다.
+
+day19 search in sorted array
+이진 탐색을 모르는 상태에서 접근하니 풀이가 엉망이였다.
+시간이 없어서 일단 복붙으로 제출하고 보았다. 이후, 공부해서 풀어보았다.
+이진 탐색은 여기서 읽어보았다.
+https://wayhome25.github.io/cs/2017/04/15/cs-16/
+
+생각보다 재귀를 예쁘게 못 꾸민다는 생각이 들었다. 전부 return해줄 필요는 없구나.
+암튼 다 꾸미고 여러가지 면에서 고민을 했는데, 조건이 더 필요하다는 생각이 계속 들었다.
+계속 틀리기도 했고.. left부분이 제일 클 때가 항상 오류나는 조건이였다.
+여러가지를 고민하였으나, 답이 없어서 dicussion을 뒤적여보았다.
+https://leetcode.com/problems/search-in-rotated-sorted-array/discuss/587261/Python-recursion-O(log-n)-11-lines-easy-to-understand
+를 참고해서 해결하였다. 아예 조건을 고민해보는 것도 좋은 것 같다.
+
+day20 construct binary search tree from preorder traversal
+일단... 뭘 질문하는지부터 알아보아야 되었다.
+traversal이란 트리를 순회하는 방법을 이야기한다.
+preorder traversal은 루트 노드에서부터 다음과 같은 방법으로 노드를 방문한다.
+- 노드를 방문한다.
+- 왼쪽 서브트리를 전위 순회한다.
+- 오른쪽 서브트리를 전위순회한다.
+https://gnujoow.github.io/ds/2016/09/01/DS4-TreeTraversal/
+
+이진탐색트리가 무엇인지는 다음을 참고했다
+https://ratsgo.github.io/data%20structure&algorithm/2017/10/22/bst/
+
+다 만들어 놓고, 왜 답이 안나오는지 엄청나게 고민했는데...
+right와 left를 반대로 해놓았다. 허허.
+
 
 @@@
 11053 재귀 함수 작성
