@@ -1,3 +1,4 @@
+# https://programmers.co.kr/learn/courses/30/lessons/64065
 # Solving Date: 20.03.28.
 # O(n^3)으로 풀었는데.. 더 빠른 방법이 있지 않을까.
 # 중간 중간에 검사하는게 더 빠를 수 있을 것 같다.
