@@ -823,6 +823,31 @@ dfs로도 풀 수 있을 것 같았으나, 귀찮았다. 거의 유사한 방법
 문을 열든, 키를 가져가든, 문서를 훔치든 그 다음도 가야 문제가 해결되었다.
 그래서 자유게시판에 발생할 만한 문제를 적어두었다.
 
+# 20.04.25.
+day24 lru cache
+이전에 운영체제에서 보았던 기억이 있어서 기억나는 방법으로 풀었다.
+queue를 이용하는게 답이였다. store를 list로 구현할지, dict으로 구현할지 고민하다가 key자체가 index가 아니였다.
+그래서 dict으로 두고 만들었다.
+
+답을 보니 collections에 있는 OrderDict을 사용해서 구현하였다.
+OrderDict은 받아온 순서를 기억하는 dictionary이다.
+https://excelsior-cjh.tistory.com/98 를 참고했다.
+일반적인 dictionary와 같으나, move_to_end와 popitem이 추가되었다.
+move_to_end는 True일 때 맨 오른쪽으로 넘기고
+popitem은 True일 때 LIFO(queue)로 출력하고 False일 때 FIFO(stack)으로 값을 삭제한다.
+
+16964번
+이번에도 100%에서 틀렸는데, 처음이 1이 아닐때를 확인하지 않아서였다. ㅂㄷ
+오늘은 공부가 안되서 짜기 싫다 하면서 아침부터 저녁까지 놀면서 짰는데, 저녁때 대충 푼게 잘 돌아갔다.
+어휴..
+신기하게 all(check[1:])을 점검하는 것과, 그냥 return으로 끝낸 것과 차이가 없었다.
+O(n)만큼 차이가 나야되는거 아닌가.
+암튼 node를 넣고, next_node가 존재하면 넣고, 없으면 다시 pop해서 있는지 확인하는 거였다.
+
+4358번
+그냥 dictionary로도 풀 수 있었지만, 이전에 leet code에서 풀었던 defaultdict이 떠올라서 defaultdict으로 풀었다.
+
+
 @@@
 11053 재귀 함수 작성
 14002 재귀 함수 작성
