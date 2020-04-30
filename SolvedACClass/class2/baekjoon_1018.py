@@ -6,27 +6,21 @@ read = sys.stdin.readline
 
 
 def check_board(board, y, x):
-    white_start = 0
     black_start = 0
-    # y가 짝수이면 black과 같을 때 white가 증가한다.
-    # y가 홀수이면 black과 같을 때 black이 증가한다.
+    # y가 짝수이면 black과 다를 때 / 홀수이면 black과 같을 때 증가
     black = "BWBWBWBW"
     for dy in range(8):
         if dy % 2 == 0:
             for dx in range(8):
                 new_y, new_x = y + dy, x + dx
-                if board[new_y][new_x] == black[dx]:
-                    white_start += 1
-                else:
+                if board[new_y][new_x] != black[dx]:
                     black_start += 1
         else:
             for dx in range(8):
                 new_y, new_x = y + dy, x + dx
                 if board[new_y][new_x] == black[dx]:
                     black_start += 1
-                else:
-                    white_start += 1
-    return min(black_start, white_start)
+    return min(black_start, 64 - black_start)
 
 
 def brute_force(board):
