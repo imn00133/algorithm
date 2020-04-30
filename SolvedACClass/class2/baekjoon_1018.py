@@ -32,17 +32,13 @@ def brute_force(board):
     return min_count
 
 
-def main(mode=''):
+def main():
     row, column = (int(x) for x in read().split())
     board = []
     for _ in range(row):
         board.append(read().strip())
-    if mode == 'brute':
-        ans = brute_force(board)
-    else:
-        ans = bottom_up(board)
-    print(ans)
+    print(brute_force(board))
 
 
 if __name__ == '__main__':
-    main('brute')
+    main()
