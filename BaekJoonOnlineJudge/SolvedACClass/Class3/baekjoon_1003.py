@@ -19,9 +19,10 @@ def top_down(number):
         return dp_arr[1]
     if dp_arr[number][0] > 0:
         return dp_arr[number]
-    temp = tuple(zip(top_down(number - 1), top_down(number - 2)))
-    for index in range(len(temp)):
-        dp_arr[number][index] = temp[index][0] + temp[index][1]
+    index = 0
+    for num1, num2 in zip(top_down(number - 1), top_down(number - 2)):
+        dp_arr[number][index] = num1 + num2
+        index += 1
     return dp_arr[number]
 
 
