@@ -1193,6 +1193,25 @@ defaultdict을 사용하였으나, Counter와 enumerate가 훨씬 좋은 선택�
 바이러스를 활성화할 때 count는 증가하지만, 외부의 count는 증가시키지 않으면 되는 문제였다.
 별별 짓을 다하다가 맞췄다.
 
+# 20.05.07.
+day6 majority element
+Counter를 가지고 풀었는데, Boyer-Moore voting algorithm이 있었다.
+majority는 항상 n/2보다 크다는 것이 보장되기 때문에 candidate를 만들고
+count가 0일 경우 이번 수를 candidate에 올린다. 이후, 같으면 count를 올리고, 아니면 count를 감소시킨다.
+이를 반복하면 마지막에는 개수가 n/2보다 num만 남게 된다.
+
+1339번
+permutation으로 풀어보았다.
+3억번이여서 안 풀릴 것 같았는데, 예상대로 안풀렸다. python3에서는..
+pypy3로는 6초가 걸린 것으로 보아 backtracking이 들어가야될 것 같았다.
+다만 내 생각으로는 어렵... 일단 최대 자리수가 최대값이 들어가는 것은 맞는데..
+이걸 어떻게 순열로 푸는지 모르겠다.
+
+https://mygumi.tistory.com/156
+를 참고해서 수학적방법을 추가해서 풀었다.
+자리수를 계산해서 sorting하고 최대부터 값을 넣어주는 방법이다.
+
+
 @@@
 11053 재귀 함수 작성
 14002 재귀 함수 작성
