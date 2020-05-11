@@ -21,24 +21,60 @@ class Jewel:
         return f"Jewel({self.weight}, {self.value}, {self.bag})"
 
     def __lt__(self, other):
-        return self.weight < other.weight or (self.weight == other.weight and self.value < other.value)
+        return self.weight < other.weight
 
-    def __gt__(self, other):
-        return self.weight > other.weight or (self.weight == other.weight and self.value < other.value)
+
+def slow_max_heap():
+    gem_num, bag_num = (int(x) for x in read().split())
+    gems = [Jewel(*(int(x) for x in read().split())) for _ in range(gem_num)]
+    gems.sort(key=operator.attrgetter('value'), reverse=True)
+    gems.extend(Jewel(*(int(x) for x in read().split()), 0, True) for _ in range(bag_num))
+    gems.sort(key=operator.attrgetter('weight'))
+    heap = []
+    max_value = 0
+    bag_count = 0
+    for gem in gems:
+        if gem.bag:
+            bag_count += 1
+            if heap:
+                max_value += heapq.heappop(heap)[1].value
+        else:
+            heapq.heappush(heap, (-gem.value, gem))
+        if bag_count == bag_num:
+            break
+    return max_value
 
 
 def max_heap():
+    # https://www.acmicpc.net/source/19539661 참고
     gem_num, bag_num = (int(x) for x in read().split())
-    gems = [Jewel(*(int(x) for x in read().split())) for _ in range(gem_num)]
-    # gems.sort(key=operator.attrgetter('value'), reverse=True)
-    gems.extend(Jewel(*(int(x) for x in read().split()), 0, True) for _ in range(bag_num))
+    gems = [tuple(int(x) for x in read().split()) for _ in range(gem_num)]
     gems.sort()
-    print(gems)
+    bags = [int(read().strip()) for _ in range(bag_num)]
+    bags.sort()
+    heap = []
+    max_value = 0
+    last_index = 0
+    for bag in bags:
+        for index in range(last_index, len(gems)):
+            last_index += 1
+            weight, value = gems[index]
+            if weight > bag:
+                max_value -= heapq.heappop(heap)
+                break
+            heapq.heappush(heap, -value)
+        else:
+            max_value -= heapq.heappop(heap)
+        if not heap:
+            break
+    return max_value
 
 
 def main(mode=''):
-    if mode == 'max_heap':
-        max_heap()
+    if mode == 'slow_max_heap':
+        print(slow_max_heap())
+    elif mode == 'max_heap':
+        print(max_heap())
 
 
 if __name__ == '__main__':
