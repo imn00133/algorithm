@@ -4,6 +4,7 @@
 import sys
 import operator
 import heapq
+import collections
 
 read = sys.stdin.readline
 
@@ -54,28 +55,29 @@ def max_heap():
     bags.sort()
     heap = []
     max_value = 0
-    last_index = 0
+    index = 0
     for bag in bags:
-        for index in range(last_index, len(gems)):
-            last_index += 1
+        while index < len(gems):
             weight, value = gems[index]
             if weight > bag:
-                max_value -= heapq.heappop(heap)
+                if heap:
+                    max_value -= heapq.heappop(heap)
                 break
+            index += 1
             heapq.heappush(heap, -value)
-        else:
+        if index == len(gems):
             max_value -= heapq.heappop(heap)
-        if not heap:
-            break
+            if not heap:
+                break
     return max_value
 
 
 def main(mode=''):
     if mode == 'slow_max_heap':
         print(slow_max_heap())
-    elif mode == 'max_heap':
+    else:
         print(max_heap())
 
 
 if __name__ == '__main__':
-    main('max_heap')
+    main()
