@@ -11,7 +11,7 @@ MIN = -(10 ** 9)
 
 def next_permutation(operators):
     end_index = -1
-    for index in range(len(operators)-1, -1, -1):
+    for index in range(len(operators)-1, 0, -1):
         if operators[index-1] < operators[index]:
             end_index = index - 1
             break
