@@ -1469,6 +1469,43 @@ binary로 풀었다. 문제가 없어보이는데 시간초과가 나서 소스�
 이 그래프는 여러 간선으로 연결되니 점검하는 과정이 너무 많아서 그런 것 같다.
 
 
+# 20.05.15.
+day14 implement trie (prefix tree)
+시간이 부족하여 아래를 참고했다.
+https://leetcode.com/problems/implement-trie-prefix-tree/discuss/632380/PYTHON-Faster-than-97.69-TRIE-with-nested-dictionary-Prefix-Tree
+처음보는 자료구조였다. 어떻게 풀지 아예 감도 없는 자료구조.
+Trie라고 하는 자료구조가 따로 있었다.
+solution과 https://twpower.github.io/187-trie-concept-and-basic-problem을 참고했다.
+독특한 자료구조이다. 용량을 우걱우걱 먹어서 속도를 올리는 방법.
+사용하는 곳은 자동완성, 맞춤법 검사, ip routing 등 시작부터 얼마나 맞는지 확인할 때 사용한다.
+dictionary와 array가 있는데, 보고 구성한 것은 dictionary였고, 직접 만든건 array였다.
+단어가 적어서 그런가, dictionary보다는 array가 훨씬 용량을 많이 먹고, 속도도 느렸다.
+
+구성은 다음과 같다.
+넣는 것은 문자가 있어 다음노드가 있는지 확인하고 없으면 새로 만들어서 다음 노드를 넣는다.
+문자를 계속 반복해서 넣게 된다.
+마지막에는 end문자열을 넣어, 이게 마지막임을 알린다.
+
+검색은 문자가 있는지 확인하면서 없으면 False를 반환한다.
+마지막에 가서 is_end가 있는지 확인하고 없으면 False이다.
+
+prefix검색은 문자가 있는지 검색하면서 마지막까지 가면 True를 반환해준다.
+
+2022번
+문제가 잘 이해가지 않았다.
+방정식이고 d를 제외한 모든 값이 주어졌으니 d를 풀 수 있을 것 같았다.
+그런데, d로 방정식을 푸는게 너무 어려운가 보다. 다들 수치해석을 했다.
+그리고 식을 간단하게 할 때는 h1, h2로 미지수를 놓는것이 편하다.
+d로 정리해서 한 번에 풀 생각이 아니라면 말이다.
+https://sw-ko.tistory.com/145
+http://joonas-yoon.blogspot.com/2016/11/2022-crossed-ladder.html
+를 참고했다.
+
+2573번
+다른 사람것을 참고했으나, 다른 지점을 못찾겠다. 그런데 속도가 약 3/4정도 느리다. 흐음.
+신기하게 if count > 2인 부분을 내부에서 확인하든 확인하지 않든 속도가 같다.
+가장 느린 것이 아마 다 줄어들어 0이 될 때인가 보다.
+
 @@@
 11053 재귀 함수 작성
 14002 재귀 함수 작성
@@ -1492,6 +1529,7 @@ https://koosaga.com/3
 https://dlucky.tistory.com/36
 
 1202 BST로 풀어보기
+5052 trie연습해보기
 
 1424 failed
 17619 failed
