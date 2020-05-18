@@ -62,7 +62,6 @@ def main(mode=''):
     row, column = (int(x) for x in read().split())
     board = [list(read().strip()) for _ in range(row)]
     coin_pos = find_coin(board)
-    if mode == 'recursion':
     count = recursion(board, coin_pos)
     if count <= 10:
         print(count)
