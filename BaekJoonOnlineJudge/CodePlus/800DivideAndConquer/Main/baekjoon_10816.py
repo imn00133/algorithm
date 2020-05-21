@@ -1,5 +1,5 @@
 # https://www.acmicpc.net/problem/10816
-# Solved Date: 20.05.02.
+# Solved Date: 20.05.21.
 
 import sys
 import collections
@@ -35,17 +35,66 @@ def fast_ans_print(card_counter, find_cards):
     print(' '.join(ans))
 
 
-def main(mode='pythonic'):
-    card_num = int(read().strip())
-    cards = read().split()
-    if mode == 'pythonic':
-        card_counter = pythonic(cards)
+def lower_bound(cards, find_num):
+    left = 0
+    right = len(cards) - 1
+    lower = 0
+    while left <= right:
+        mid = (left + right) // 2
+        if cards[mid] == find_num:
+            lower = mid
+            right = mid - 1
+        elif cards[mid] < find_num:
+            left = mid + 1
+        else:
+            right = mid - 1
+    return lower
+
+
+def upper_bound(cards, find_num):
+    left = 0
+    right = len(cards) - 1
+    upper = 0
+    while left <= right:
+        mid = (left + right) // 2
+        if cards[mid] == find_num:
+            upper = mid + 1
+            left = mid + 1
+        elif cards[mid] < find_num:
+            left = mid + 1
+        else:
+            right = mid - 1
+    return upper
+
+
+def binary_search(cards, find_cards):
+    # python3에서는 시간초과
+    ans = []
+    for number in find_cards:
+        lower = lower_bound(cards, number)
+        upper = upper_bound(cards, number)
+        ans.append(str(upper - lower))
+    return ' '.join(ans)
+
+
+def main(mode='', counter_mode=''):
+    if mode == 'binary':
+        card_num = int(read().strip())
+        cards = sorted([int(x) for x in read().split()])
+        find_card_num = int(read().strip())
+        find_cards = [int(x) for x in read().split()]
+        print(binary_search(cards, find_cards))
     else:
-        card_counter = legacy(cards)
-    find_card_num = int(read().strip())
-    find_cards = read().split()
-    fast_ans_print(card_counter, find_cards)
+        card_num = int(read().strip())
+        cards = read().split()
+        find_card_num = int(read().strip())
+        find_cards = read().split()
+        if counter_mode == 'legacy':
+            card_counter = legacy(cards)
+        else:
+            card_counter = pythonic(cards)
+        fast_ans_print(card_counter, find_cards)
 
 
 if __name__ == '__main__':
-    main('pythonic')
+    main('binary')
