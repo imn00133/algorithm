@@ -1,5 +1,5 @@
 # https://www.acmicpc.net/problem/3055
-# Solved Date: 20.06.06.
+# Solved Date: 20.06.07.
 
 import sys
 import collections
@@ -15,13 +15,13 @@ def init(visit, start, water_pos, stone_pos):
     # 물과 고슴도치를 넣음
     queue = collections.deque()
     clock = 0
-    y, x = start
-    visit[y][x] = True
-    # y, x, clock, 고슴도치인가?
-    queue.append((y, x, clock, True))
     for y, x in water_pos:
         visit[y][x] = True
+        # y, x, clock, 고슴도치인가?
         queue.append((y, x, clock, False))
+    y, x = start
+    visit[y][x] = True
+    queue.append((y, x, clock, True))
     return queue
 
 
@@ -53,9 +53,9 @@ def find_pos(board):
             letter = board[y][x]
             if letter == '.':
                 continue
-            elif letter == 'D':
-                start = (y, x)
             elif letter == 'S':
+                start = (y, x)
+            elif letter == 'D':
                 end = (y, x)
             elif letter == 'X':
                 stone_pos.append((y, x))
