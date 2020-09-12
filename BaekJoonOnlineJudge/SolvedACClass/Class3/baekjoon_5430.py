@@ -9,7 +9,7 @@ read = sys.stdin.readline
 
 
 def calculate(operations, arr):
-    if operations.count('D') > len(arr):
+    if operations.count_words('D') > len(arr):
         return 'error'
     right_pop = False
     for op in operations:
