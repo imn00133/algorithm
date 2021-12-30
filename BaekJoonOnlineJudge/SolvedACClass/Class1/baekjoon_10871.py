@@ -7,25 +7,25 @@ read = sys.stdin.readline
 
 
 def legacy(num_list, x):
-	num_filter = []
-	for num in num_list:
-		if num < x:
-			num_filter.append(num)
-	return num_filter
+    num_filter = []
+    for num in num_list:
+        if num < x:
+            num_filter.append(num)
+    return num_filter
 
 
 def pythonic(num_list, x):
-	num_filter = [num for num in num_list if num < x]
-	return num_filter
+    num_filter = [num for num in num_list if num < x]
+    return num_filter
 
 
 def main():
-	arr_num, x = (int(x) for x in read().split())
-	num_list = [int(num) for num in read().split()]
-	num_filter = legacy(num_list, x)
-	for num in num_filter:
-		print(num, end=' ')
+    arr_num, x = (int(x) for x in read().split())
+    num_list = [int(num) for num in read().split()]
+    num_filter = legacy(num_list, x)
+    for num in num_filter:
+        print(num, end=' ')
 
 
 if __name__ == '__main__':
-	main()
+    main()

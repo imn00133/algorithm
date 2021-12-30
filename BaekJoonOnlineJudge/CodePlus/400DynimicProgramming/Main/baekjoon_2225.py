@@ -12,26 +12,26 @@ dp_arr = [[0 for _ in range(MAX+1)] for _ in range(MAX+1)]
 
 
 def bottom_up(num, k):
-	dp_arr[0][0] = 1
-	for count in range(1, k+1):
-		for number in range(num+1):
-			for L in range(number+1):
-				dp_arr[count][number] += dp_arr[count-1][number-L]
-			dp_arr[count][number] %= MOD
+    dp_arr[0][0] = 1
+    for count in range(1, k+1):
+        for number in range(num+1):
+            for L in range(number+1):
+                dp_arr[count][number] += dp_arr[count-1][number-L]
+            dp_arr[count][number] %= MOD
 
 
 def top_down(num, k):
-	pass
+    pass
 
 
 def main(mode=''):
-	num, k = (int(x) for x in read().split())
-	if mode == "top":
-		top_down(num, k)
-	else:
-		bottom_up(num, k)
-	print(dp_arr[k][num])
+    num, k = (int(x) for x in read().split())
+    if mode == "top":
+        top_down(num, k)
+    else:
+        bottom_up(num, k)
+    print(dp_arr[k][num])
 
 
 if __name__ == '__main__':
-	main()
+    main()

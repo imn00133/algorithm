@@ -7,19 +7,19 @@ read = sys.stdin.readline
 
 
 def set_single_number(nums):
-	num_set = set()
-	for number in nums:
-		if number in num_set:
-			num_set.remove(number)
-		else:
-			num_set.add(number)
-	return num_set.pop()
+    num_set = set()
+    for number in nums:
+        if number in num_set:
+            num_set.remove(number)
+        else:
+            num_set.add(number)
+    return num_set.pop()
 
 
 def main():
-	nums = [int(x) for x in read().split()]
-	print(set_single_number(nums))
+    nums = [int(x) for x in read().split()]
+    print(set_single_number(nums))
 
 
 if __name__ == '__main__':
-	main()
+    main()

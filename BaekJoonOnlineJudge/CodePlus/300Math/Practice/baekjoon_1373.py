@@ -8,29 +8,29 @@ read = sys.stdin.readline
 
 
 def legacy(binary):
-	if len(binary) % 3 != 0:
-		binary = ("0" * (3 - (len(binary) % 3))) + binary
-	octal = []
-	for index in range(0, len(binary), 3):
-		split_binary = binary[index:index+3]
-		temp_octal = 0
-		for num in range(len(split_binary)):
-			temp_octal += int(split_binary[num]) * (2 ** (2 - num))
-		octal.append(temp_octal)
-	octal = [str(x) for x in octal]
-	return ''.join(octal)
+    if len(binary) % 3 != 0:
+        binary = ("0" * (3 - (len(binary) % 3))) + binary
+    octal = []
+    for index in range(0, len(binary), 3):
+        split_binary = binary[index:index+3]
+        temp_octal = 0
+        for num in range(len(split_binary)):
+            temp_octal += int(split_binary[num]) * (2 ** (2 - num))
+        octal.append(temp_octal)
+    octal = [str(x) for x in octal]
+    return ''.join(octal)
 
 
 def pythonic(binary):
-	binary = int(binary, 2)
-	return format(binary, 'o')
+    binary = int(binary, 2)
+    return format(binary, 'o')
 
 
 def main():
-	binary = read().strip()
-	octal = legacy(binary)
-	print(octal)
+    binary = read().strip()
+    octal = legacy(binary)
+    print(octal)
 
 
 if __name__ == '__main__':
-	main()
+    main()

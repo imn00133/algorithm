@@ -4,8 +4,8 @@
 a, b = (int(x) for x in input().split())
 
 if a > b:
-	print('>')
+    print('>')
 elif a < b:
-	print('<')
+    print('<')
 else:
-	print('==')
+    print('==')

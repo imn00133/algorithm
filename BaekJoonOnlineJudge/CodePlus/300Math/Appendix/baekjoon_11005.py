@@ -11,13 +11,13 @@ DIGIT = list(string.digits) + list(string.ascii_uppercase)
 
 
 def main():
-	num, base = (int(x) for x in read().split())
-	convert_num = []
-	while num:
-		convert_num.append(DIGIT[num % base])
-		num //= base
-	print(''.join(reversed(convert_num)))
+    num, base = (int(x) for x in read().split())
+    convert_num = []
+    while num:
+        convert_num.append(DIGIT[num % base])
+        num //= base
+    print(''.join(reversed(convert_num)))
 
 
 if __name__ == '__main__':
-	main()
+    main()

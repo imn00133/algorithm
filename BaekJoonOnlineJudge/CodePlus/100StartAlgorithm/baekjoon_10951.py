@@ -6,8 +6,8 @@
 # 참고 https://enjoyso.tistory.com/10
 
 while True:
-	try:
-		a, b = map(int, input().split())
-		print(a+b)
-	except EOFError:
-		break
+    try:
+        a, b = map(int, input().split())
+        print(a+b)
+    except EOFError:
+        break

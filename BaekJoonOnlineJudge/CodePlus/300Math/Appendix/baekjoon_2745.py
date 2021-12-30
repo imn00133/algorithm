@@ -8,29 +8,29 @@ read = sys.stdin.readline
 
 
 def legacy_decode(num, base):
-	decimal = 0
-	for i in range(len(num)):
-		letter = num[-(i+1)]
-		if ord('0') <= ord(letter) <= ord('9'):
-			decimal += int(letter) * (base ** i)
-		else:
-			value = ord(letter) - ord('A') + 10
-			decimal += value * (base ** i)
-	return decimal
+    decimal = 0
+    for i in range(len(num)):
+        letter = num[-(i+1)]
+        if ord('0') <= ord(letter) <= ord('9'):
+            decimal += int(letter) * (base ** i)
+        else:
+            value = ord(letter) - ord('A') + 10
+            decimal += value * (base ** i)
+    return decimal
 
 
 def pythonic_decode(num, base):
-	return int(num, base)
+    return int(num, base)
 
 
 def main(mode=''):
-	num, base = read().split()
-	base = int(base)
-	convert_decimal = pythonic_decode
-	if mode == 'legacy':
-		convert_decimal = legacy_decode
-	print(convert_decimal(num, base))
+    num, base = read().split()
+    base = int(base)
+    convert_decimal = pythonic_decode
+    if mode == 'legacy':
+        convert_decimal = legacy_decode
+    print(convert_decimal(num, base))
 
 
 if __name__ == '__main__':
-	main('legacy')
+    main('legacy')

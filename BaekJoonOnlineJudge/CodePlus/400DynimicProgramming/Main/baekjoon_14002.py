@@ -13,42 +13,42 @@ dp_arr = [[0, 0] for _ in range(MAX+1)]
 
 
 def bottom_up(sequence):
-	for index, value in enumerate(sequence):
-		dp_arr[index][0] = 1
-		dp_arr[index][1] = index
-		for sub_index in range(index):
-			if sequence[sub_index] < value and dp_arr[sub_index][0] + 1 > dp_arr[index][0]:
-				dp_arr[index][0] = dp_arr[sub_index][0] + 1
-				dp_arr[index][1] = sub_index
+    for index, value in enumerate(sequence):
+        dp_arr[index][0] = 1
+        dp_arr[index][1] = index
+        for sub_index in range(index):
+            if sequence[sub_index] < value and dp_arr[sub_index][0] + 1 > dp_arr[index][0]:
+                dp_arr[index][0] = dp_arr[sub_index][0] + 1
+                dp_arr[index][1] = sub_index
 
 
 def find_sequence(sequence, index):
-	if dp_arr[index][0] == 1:
-		return print(sequence[index], end=' ')
-	find_sequence(sequence, dp_arr[index][1])
-	return print(sequence[index], end=' ')
+    if dp_arr[index][0] == 1:
+        return print(sequence[index], end=' ')
+    find_sequence(sequence, dp_arr[index][1])
+    return print(sequence[index], end=' ')
 
 
 def top_down(sequence):
-	pass
+    pass
 
 
 def main(mode=''):
-	arr_num = int(read().strip())
-	sequence = [int(x) for x in read().split()]
-	if mode == 'top':
-		top_down(sequence)
-	else:
-		bottom_up(sequence)
-		max_index = 0
-		for index, lis_value in enumerate(dp_arr[:arr_num]):
-			if lis_value[0] > dp_arr[max_index][0]:
-				max_index = index
-		print(dp_arr[max_index][0])
+    arr_num = int(read().strip())
+    sequence = [int(x) for x in read().split()]
+    if mode == 'top':
+        top_down(sequence)
+    else:
+        bottom_up(sequence)
+        max_index = 0
+        for index, lis_value in enumerate(dp_arr[:arr_num]):
+            if lis_value[0] > dp_arr[max_index][0]:
+                max_index = index
+        print(dp_arr[max_index][0])
 
-		# 최대 길이 수열 반환
-		find_sequence(sequence, max_index)
+        # 최대 길이 수열 반환
+        find_sequence(sequence, max_index)
 
 
 if __name__ == '__main__':
-	main()
+    main()

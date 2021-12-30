@@ -8,33 +8,33 @@ read = sys.stdin.readline
 
 
 def gcd(a, b):
-	while b:
-		r = a % b
-		a = b
-		b = r
-	return a
+    while b:
+        r = a % b
+        a = b
+        b = r
+    return a
 
 
 def recursion_gcd(a, b):
-	if b == 0:
-		return a
-	else:
-		return recursion_gcd(b, a % b)
+    if b == 0:
+        return a
+    else:
+        return recursion_gcd(b, a % b)
 
 
 def lcm(a, b, calc_gcd):
-	return int(a / calc_gcd * b)
+    return int(a / calc_gcd * b)
 
 
 def main(mode=''):
-	a, b = (int(x) for x in read().split())
-	if mode == 'r':
-		calc_gcd = recursion_gcd(a, b)
-	else:
-		calc_gcd = gcd(a, b)
-	print(calc_gcd)
-	print(lcm(a, b, calc_gcd))
+    a, b = (int(x) for x in read().split())
+    if mode == 'r':
+        calc_gcd = recursion_gcd(a, b)
+    else:
+        calc_gcd = gcd(a, b)
+    print(calc_gcd)
+    print(lcm(a, b, calc_gcd))
 
 
 if __name__ == '__main__':
-	main()
+    main()
