@@ -76,6 +76,9 @@ def find_remainder_k(food_times_len, food_time_counter, k):
             return food_time, k % current_len
 
 
+# 가장 작은 food_time + 개수로 정렬
+# index * 총 length로 없어지는 k 개수를 알 수 있음
+# 이를 반복하여 food_time이 될 수 있는 값을 찾고, 거기에 index를 찾아 반환한다.
 def solution(food_times, k):
     food_time_counter = collections.defaultdict(int)
     sum_food_time = 0
