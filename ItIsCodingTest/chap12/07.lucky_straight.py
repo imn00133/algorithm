@@ -1,5 +1,6 @@
 # chap07 구현 - 럭키 스트레이트
 # Solved Date: 22.01.15.
+# https://www.acmicpc.net/problem/18406
 import sys
 
 read = sys.stdin.readline

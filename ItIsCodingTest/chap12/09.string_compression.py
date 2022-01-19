@@ -1,5 +1,6 @@
 # chap12 구현 - 문자열 압축
 # Solved Date: 22.01.16.
+# https://programmers.co.kr/learn/courses/30/lessons/60057
 import sys
 
 read = sys.stdin.readline

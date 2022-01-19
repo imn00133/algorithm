@@ -1,5 +1,6 @@
 # chap12 구현 - 뱀
 # Solved Date: 22.01.16.
+# https://www.acmicpc.net/problem/3190
 import sys
 from collections import deque
 
