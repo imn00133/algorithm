@@ -1,4 +1,4 @@
-# chap04 구현 -
+# chap04 구현 - 게임개발
 # Solved Date: 22.01.12.
 
 import sys
@@ -46,6 +46,8 @@ def dfs(island_map, character_status, character_map, check_direction):
 
 
 # 문제풀이가 잘못됨
+# 0 0 0
+# 0 1 1 이고, (0, 1)에서 시작하면 완전탐색이 아님
 def dfs_solve(island_map, character_status):
     check_direction = make_check_direction(island_map)
     character_map = [[False for _ in range(m)] for _ in range(n)]
