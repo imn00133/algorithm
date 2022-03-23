@@ -9,10 +9,16 @@ read = sys.stdin.readline
 DXY = ((1, 0), (0, 1), (-1, 0), (0, -1))
 
 
-def solution(array, queue, check_second, answer_x, answer_y):
+def solution(array, virus_positions, check_second, answer_x, answer_y):
+    queue = deque()
+    for virus, pos_list in enumerate(virus_positions):
+        if not pos_list:
+            continue
+        for pos in pos_list:
+            queue.append((pos[0], pos[1], 0))
     while queue:
-        x, y, virus, second = queue.popleft()
-        if second == check_second + 1:
+        x, y, second = queue.popleft()
+        if second >= check_second:
             break
         for dx, dy in DXY:
             nx, ny = x + dx, y + dy
@@ -20,22 +26,22 @@ def solution(array, queue, check_second, answer_x, answer_y):
                 continue
             if array[ny][nx]:
                 continue
-            array[ny][nx] = virus
-            queue.append((nx, ny, virus, second+1))
-    return array[answer_x-1][answer_y-1]
+            array[ny][nx] = array[y][x]
+            queue.append((nx, ny, second+1))
+    return array[answer_x][answer_y]
 
 
 if __name__ == '__main__':
     array_num, virus_num = (int(x) for x in read().split())
     array = []
-    queue = deque()
-    virus_status = [[] for _ in range(virus_num+1)]
+    virus_positions = [[] for _ in range(virus_num+1)]
     for y in range(array_num):
         row = [int(tube) for tube in read().split()]
         for x, virus in enumerate(row):
             if not virus:
                 continue
-            queue.append((x, y, virus, 0))
+            virus_positions[virus].append((x, y))
         array.append(row)
     check_second, answer_x, answer_y = (int(x) for x in read().split())
-    print(solution(array, queue, check_second, answer_x, answer_y))
+    print(solution(array, virus_positions, check_second, answer_x-1, answer_y-1))
+
