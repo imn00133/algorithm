@@ -18,17 +18,13 @@ def is_passed(time_board, pos, time):
     return time_board[pos[1]][pos[0]] > time
 
 
-def is_passed_board(time_board, left, right, time):
-    return is_passed(time_board, left, time) and is_passed(time_board, right, time)
+def is_passed_board(check, left, right):
+    return (left, right) in check
 
 
-def set_time_board_pos(time_board, pos, time):
-    time_board[pos[1]][pos[0]] = time
-
-
-def set_time_board(time_board, left, right, time):
-    set_time_board_pos(time_board, left, time)
-    set_time_board_pos(time_board, right, time)
+def set_check(check, left, right):
+    check.add((left, right))
+    check.add((right, left))
 
 
 def new_position(pos, dxy):
@@ -47,13 +43,15 @@ def new_board(board):
 def solution(board):
     end_position = (len(board[0]), len(board))
     board = new_board(board)
-    time_board = [[0 for _ in range(len(board[0]))] for _ in range(len(board))]
 
     queue = deque()
+    check = set()
+    check.add(((1, 1), (2, 1)))
     queue.append(((1, 1), (2, 1), 0))
     while queue:
         left, right, second = queue.popleft()
         current_second = second + 1
+        # 종료 위치도 중요, 여기 보다 각 값마다 두면 더 빠를 수 있음
         if left == end_position or right == end_position:
             return second
 
@@ -62,10 +60,10 @@ def solution(board):
             if is_collision_board(board, new_left, new_right):
                 continue
 
-            if is_passed_board(time_board, new_left, new_right, current_second):
+            if is_passed_board(check, new_left, new_right):
                 continue
 
-            set_time_board(time_board, new_left, new_right, current_second)
+            set_check(check, new_left, new_right)
             queue.append((new_left, new_right, current_second))
 
         # 빼서 바꾸면 상대 위치가 됨
@@ -79,12 +77,12 @@ def solution(board):
             if is_collision_board(board, new_left, new_right):
                 continue
 
-            if not is_passed_board(time_board, new_right, right, current_second):
-                set_time_board(time_board, new_right, right, current_second)
+            if not is_passed_board(check, new_right, right):
+                set_check(check, new_right, right)
                 queue.append((new_right, right, current_second))
 
-            if not is_passed_board(time_board, left, new_left, current_second):
-                set_time_board(time_board, left, new_left, current_second)
+            if not is_passed_board(check, left, new_left):
+                set_check(check, left, new_left)
                 queue.append((left, new_left, current_second))
 
 
