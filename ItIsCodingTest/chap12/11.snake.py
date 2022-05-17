@@ -129,6 +129,7 @@ def simulate(board):
 # 사과 아님 -> collision time 증가
 # 뱀의 이동 기록 = snake length + collision time
 # 뱀의 이동 기록을 남기는데, collision time 보다 크면 충돌한 것으로 봄
+# 현재시간과 그 지점을 지났을 때의 차이와, 뱀의 길이를 비교해서 그 지점의 뱀의 조각이 있는지 없는지 알 수 있다.
 def fast_simulate(board):
     directions = {}
     direction_num = int(read().rstrip())
