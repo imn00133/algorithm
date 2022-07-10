@@ -4,7 +4,7 @@
 import sys
 read = sys.stdin.readline
 
-INT = int(1e9)
+INF = int(1e9)
 
 
 def init(arr):
@@ -41,10 +41,10 @@ def floyd(arr):
 def arr_print(arr):
     # print 문제인가 해서 확인: 544ms -> 532ms
     # for costs in arr:
-    #     print(*[cost if cost != INT else 0 for cost in costs])
+    #     print(*[cost if cost != INF else 0 for cost in costs])
     for i in range(len(arr)):
         for j in range(len(arr)):
-            if arr[i][j] == INT:
+            if arr[i][j] == INF:
                 arr[i][j] = 0
 
     for costs in arr:
@@ -53,7 +53,7 @@ def arr_print(arr):
 
 def main():
     city_num = int(read().rstrip())
-    arr = [[INT for _ in range(city_num)] for _ in range(city_num)]
+    arr = [[INF for _ in range(city_num)] for _ in range(city_num)]
     arr = init(arr)
     arr = floyd(arr)
     arr_print(arr)
