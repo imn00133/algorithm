@@ -1,6 +1,6 @@
 # 16 다이나믹 프로그래밍 - 퇴사
 # Solved Date: 22.06.23.
-
+# https://www.acmicpc.net/problem/14501
 import sys
 read = sys.stdin.readline
 
